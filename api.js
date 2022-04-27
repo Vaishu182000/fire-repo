@@ -6,6 +6,8 @@ var api_access_token = apiFinalURL.get('access_token')
 
 var sendData = (userName,email, subject, description)=>{
 
+    alert("Fire Inside");
+
     fetch(
         // Change - Your API here
         'https://753o7d77ga.execute-api.us-east-1.amazonaws.com/v1/fire-test/', 
