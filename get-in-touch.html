@@ -136,7 +136,7 @@
         const apiReplacedURL = apiUrl.replace('#', '&')
         const apiFinalURL = new URLSearchParams(apiReplacedURL)
 
-        var api_access_token = apiFinalURL.get('access_token')
+        var api_access_token = apiFinalURL.get('id_token')
 
         var sendData = (userName, email, subject, description) => {
 
@@ -154,7 +154,7 @@
                   }),
                   headers: {
                       'Content-Type': 'application/json',
-                      'auth': api_access_token
+                      'authentication': api_access_token
                     },
               }
           )
