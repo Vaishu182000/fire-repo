@@ -140,10 +140,21 @@
         var sendData = (userName, email, subject, description) => {
 
           console.log(api_access_token);
+
+          // axios.post('/user', {
+          //   firstName: 'Fred',
+          //   lastName: 'Flintstone'
+          // })
+          //   .then(function (response) {
+          //     console.log(response);
+          //   })
+          //   .catch(function (error) {
+          //     console.log(error);
+          //   });
           
           fetch(
               // Change - Your API here
-              'https://753o7d77ga.execute-api.us-east-1.amazonaws.com/v1', 
+              'https://753o7d77ga.execute-api.us-east-1.amazonaws.com/v3', 
               {
                   method: "POST", 
                   mode :"cors",
@@ -156,6 +167,8 @@
                   headers: {
                       'Content-Type': 'application/json',
                       'Authentication': api_access_token,
+                      'Access-Control-Allow-Headers': 'Content-Type',
+                   
                     },
               }
           )
@@ -171,41 +184,13 @@
               .catch(error => console.log('error', error));
 
 
-          // Example POST method implementation:
-        
-            // // Default options are marked with *
-            // const response = await fetch("https://753o7d77ga.execute-api.us-east-1.amazonaws.com/v1", {
-            //   method: 'POST', 
-            //   mode: 'cors', 
-            //   cache: 'no-cache', 
-            //   credentials: 'same-origin', // include, *same-origin, omit
-            //   headers: {
-            //     'Content-Type': 'application/json',
-            //     'Authorization':api_access_token,
-            //   },
-            //   redirect: 'follow', // manual, *follow, error
-            //   referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-            //   body: JSON.stringify({
-            //           "name": userName,
-            //           "email": email,
-            //           "subject":subject,
-            //           "description":description
-            //       }), // body data type must match "Content-Type" header
-            // }).then(response => response.json()).then(result => {
-            //       if(result['statusCode'] == 200){
-            //           alert("Successfully Sent the Message")
-            //       }else{
-            //           alert("Error in sending message")
-            //           alert(result)
-            //       }
-            //   })
-            //   .catch(error => console.log('error', error)); // parses JSON response into native JavaScript objects
-
+         
         }
 
     </script>
 
     <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </body>
 
