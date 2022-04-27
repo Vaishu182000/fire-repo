@@ -141,59 +141,28 @@
 
           console.log(api_access_token);
           
-          // fetch(
-          //     // Change - Your API here
-          //     'https://753o7d77ga.execute-api.us-east-1.amazonaws.com/v2/test-fire', 
-          //     {
-          //         method: "POST", 
-          //         mode :"cors",
-          //         body: JSON.stringify({
-          //             "name": userName,
-          //             "email": email,
-          //             "subject":subject,
-          //             "description":description
-          //         }),
-          //         headers: {
-          //             'Content-Type': 'application/json',
-          //             'Authentication': api_access_token,
-          //             'Access-Control-Allow-Headers': Content-Type,
-          //             'Access-Control-Max-Age': 86400
-          //           },
-          //     }
-          // )
-          //     .then(response => response.json())
-          //     .then(result => {
-          //         if(result['statusCode'] == 200){
-          //             alert("Successfully Sent the Message")
-          //         }else{
-          //             alert("Error in sending message")
-          //             alert(result)
-          //         }
-          //     })
-          //     .catch(error => console.log('error', error));
-
-
-          // Example POST method implementation:
-        
-            // Default options are marked with *
-            const response = await fetch("https://753o7d77ga.execute-api.us-east-1.amazonaws.com/v1", {
-              method: 'POST', 
-              mode: 'cors', 
-              cache: 'no-cache', 
-              credentials: 'same-origin', // include, *same-origin, omit
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization':api_access_token,
-              },
-              redirect: 'follow', // manual, *follow, error
-              referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-              body: JSON.stringify({
+          fetch(
+              // Change - Your API here
+              'https://753o7d77ga.execute-api.us-east-1.amazonaws.com/v1', 
+              {
+                  method: "POST", 
+                  mode :"cors",
+                  body: JSON.stringify({
                       "name": userName,
                       "email": email,
                       "subject":subject,
                       "description":description
-                  }), // body data type must match "Content-Type" header
-            }).then(response => response.json()).then(result => {
+                  }),
+                  headers: {
+                      'Content-Type': 'application/json',
+                      'Authentication': api_access_token,
+                      'Access-Control-Allow-Headers': Content-Type,
+                      'Access-Control-Max-Age': 86400
+                    },
+              }
+          )
+              .then(response => response.json())
+              .then(result => {
                   if(result['statusCode'] == 200){
                       alert("Successfully Sent the Message")
                   }else{
@@ -201,7 +170,38 @@
                       alert(result)
                   }
               })
-              .catch(error => console.log('error', error)); // parses JSON response into native JavaScript objects
+              .catch(error => console.log('error', error));
+
+
+          // Example POST method implementation:
+        
+            // // Default options are marked with *
+            // const response = await fetch("https://753o7d77ga.execute-api.us-east-1.amazonaws.com/v1", {
+            //   method: 'POST', 
+            //   mode: 'cors', 
+            //   cache: 'no-cache', 
+            //   credentials: 'same-origin', // include, *same-origin, omit
+            //   headers: {
+            //     'Content-Type': 'application/json',
+            //     'Authorization':api_access_token,
+            //   },
+            //   redirect: 'follow', // manual, *follow, error
+            //   referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            //   body: JSON.stringify({
+            //           "name": userName,
+            //           "email": email,
+            //           "subject":subject,
+            //           "description":description
+            //       }), // body data type must match "Content-Type" header
+            // }).then(response => response.json()).then(result => {
+            //       if(result['statusCode'] == 200){
+            //           alert("Successfully Sent the Message")
+            //       }else{
+            //           alert("Error in sending message")
+            //           alert(result)
+            //       }
+            //   })
+            //   .catch(error => console.log('error', error)); // parses JSON response into native JavaScript objects
 
         }
 
