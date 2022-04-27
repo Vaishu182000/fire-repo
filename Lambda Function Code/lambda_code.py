@@ -6,7 +6,7 @@ import uuid
 dynamodb = boto3.resource('dynamodb')
 
 # Change - the name of the DynamoDB table
-table = dynamodb.Table('get-in-touch-table')
+table = dynamodb.Table('fire-table')
 
 # Create an SNS Client
 client_sns = boto3.client('sns')
@@ -30,7 +30,7 @@ def lambda_handler(event, context):
 # Publish a message to SNS
 def handle_sns(id, event):
     sns_message = """
-        You got a new Message from https://rushidonga.github.io/cognito-auth/
+        You got a new Message from https://rella-raffick.github.io/fire-repo/
         The message is as follows
         
         id      : {id}
@@ -49,7 +49,7 @@ def handle_sns(id, event):
     client_sns.publish(
 
         # Change - the ARN to the ARN of your SNS
-        TopicArn='arn:aws:sns:ap-south-1:937726284102:Get-in-touch-SNS',
+        TopicArn='arn:aws:sns:us-east-1:895294974745:fire-topic',
         Message= sns_message,
         Subject= event['subject']
     )
