@@ -155,7 +155,10 @@
                   }),
                   headers: {
                       'Content-Type': 'application/json',
-                      'authentication': api_access_token
+                      'Authentication': api_access_token,
+                      'Access-Control-Allow-Methods': GET, POST, PUT, PATCH, POST, DELETE, OPTIONS,
+                      'Access-Control-Allow-Headers': Content-Type,
+                      'Access-Control-Max-Age': 86400
                     },
               }
           )
