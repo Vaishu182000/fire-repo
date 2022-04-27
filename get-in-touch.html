@@ -154,10 +154,9 @@
           
           fetch(
               // Change - Your API here
-              'https://753o7d77ga.execute-api.us-east-1.amazonaws.com/v3', 
+              'https://753o7d77ga.execute-api.us-east-1.amazonaws.com/v4', 
               {
                   method: "POST", 
-                  mode :"cors",
                   body: JSON.stringify({
                       "name": userName,
                       "email": email,
@@ -168,9 +167,8 @@
                       'Content-Type': 'application/json',
                       'Authentication': api_access_token,
                        "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Credentials": "true",
-                    "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
-                    "Access-Control-Allow-Headers": "Special-Request-Header, Origin, X-Requested-With, Content-Type, Accept, Authorization"
+                    "Access-Control-Allow-Methods": "*",
+                    "Access-Control-Allow-Headers": "*"
                    
                     },
               }
