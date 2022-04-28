@@ -47,8 +47,8 @@ cognitoidentityserviceprovider.getUser(params, function(err, data) {
             }
         }
 
-        document.getElementById('userName').innerHTML = UserName;
-        document.getElementById('userEmail').innerHTML = UserEmail;  
+        document.getElementById('userNameInput').innerHTML = UserName;
+        document.getElementById('userEmailInput').innerHTML = UserEmail;   
 
         document.getElementById('userNameInput').value =UserName;
         document.getElementById('userEmailInput').value = UserEmail;    
