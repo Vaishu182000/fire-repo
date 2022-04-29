@@ -4,6 +4,8 @@
     </head>
     <body onload="fetchData()">
         <h1>Admin Page</h1>
+        <h1 id="datafetch"></h1>
+        <h1 id="databody"></h1>
     </body>
     <script>
         var fetchData=()=>{
@@ -20,7 +22,10 @@
               }
           )
           .then(response => response.json())
-          .then(data => console.log(data))
+          .then(data => {
+              document.getElementById("datafetch").innerHTML(data)
+              document.getElementById("databody").innerHTML(data.body)
+          })
           .catch(error => console.log('error', error));  
         }
     </script>
