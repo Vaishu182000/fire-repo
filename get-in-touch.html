@@ -311,7 +311,7 @@
           
           fetch(
               // Change - Your API here
-              'https://pxdw5p5g8g.execute-api.us-east-1.amazonaws.com/v1', 
+              'https://hndl2ye428.execute-api.us-east-1.amazonaws.com/gen1/fire', 
               {
                   method: "POST", 
                   body: JSON.stringify({
@@ -321,7 +321,8 @@
                       "description":description
                   }),
                   headers: {
-                      'Authorization': api_access_token,
+                    "authorizationToken":"admin",
+                      // 'Authorization': api_access_token,
                        "Access-Control-Allow-Origin": "*",
                     "Access-Control-Allow-Methods": "GET,OPTIONS,POST",
                     "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token"
