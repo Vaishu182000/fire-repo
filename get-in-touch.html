@@ -343,7 +343,6 @@
               }
           )
           .then(response => response.json())
-          .then(data => console.log(data))
           .then(result => {
               if(result['statusCode'] == 200){
                   alert("Got Admin")

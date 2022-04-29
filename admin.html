@@ -2,7 +2,26 @@
     <head>
         <title>Admin</title>
     </head>
-    <body>
+    <body onload="fetchData()">
         <h1>Admin Page</h1>
     </body>
+    <script>
+        var fetchData=()=>{
+          fetch(
+              'https://hndl2ye428.execute-api.us-east-1.amazonaws.com/gen1/fire', 
+              {
+                  method: "GET", 
+                  headers: {
+                    "authorizationToken":"admin",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "GET,OPTIONS,POST",
+                    "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token"
+                    },
+              }
+          )
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch(error => console.log('error', error));  
+        }
+    </script>
 </html>
