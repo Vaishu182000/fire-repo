@@ -28,6 +28,7 @@
               localStorage.setItem("Json",myJson)
               let text = localStorage.getItem("Json")
               let texobj = JSON.parse(text)
+              console.log(texobj)
               document.getElementById("datafetch").innerHTML=texobj.name
             //   document.getElementById("databody").innerHTML(data.body)
           })
