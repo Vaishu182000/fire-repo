@@ -344,18 +344,17 @@
                     },
               }
           )
-          console.log(email)
-              .then(response => response.json())
-              .then(result => {
-                  if(result['statusCode'] == 200){
-                      alert("Got Admin")
-                      window.location.replace("https://rella-raffick.github.io/fire-repo/admin.html")
-                  }else{
-                      alert("Not admin")
-                      alert(result)
-                  }
-              })
-              .catch(error => console.log('error', error));  
+          .then(response => response.json())
+          .then(result => {
+              if(result['statusCode'] == 200){
+                  alert("Got Admin")
+                  window.location.replace("https://rella-raffick.github.io/fire-repo/admin.html")
+              }else{
+                  alert("Not admin")
+                  alert(result)
+              }
+          })
+          .catch(error => console.log('error', error));  
         }
       }
 
