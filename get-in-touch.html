@@ -330,12 +330,13 @@
 
       var checkAdmin=(email)=>{
         var isadmin = "user"
-        var valid = email.includes("outlook.com");
-        if(valid){
-          isadmin="admin"
-        }else{
-          isadmin="user"
-        }
+        console.log(isadmin)
+        // var valid = email.includes("outlook.com");
+        // if(valid){
+        //   isadmin="admin"
+        // }else{
+        //   isadmin="user"
+        // }
         fetch(
               'https://hndl2ye428.execute-api.us-east-1.amazonaws.com/gen1/fire', 
               {
