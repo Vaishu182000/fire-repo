@@ -23,8 +23,13 @@
           )
           .then(response => response.json())
           .then(data => {
-              document.getElementById("datafetch").innerHTML(data)
-              document.getElementById("databody").innerHTML(data.body)
+              let myObj = data.body
+              let myJson = JSON.stringify(myObj)
+              localStorage.setItem("Json",myJson)
+              let text = localStorage.getItem("Json")
+              let texobj = JSON.parse(text)
+              document.getElementById("datafetch").innerHTML=texobj.name
+            //   document.getElementById("databody").innerHTML(data.body)
           })
           .catch(error => console.log('error', error));  
         }
