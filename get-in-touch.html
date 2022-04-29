@@ -141,20 +141,9 @@
 
           console.log(api_access_token);
 
-          // axios.post('/user', {
-          //   firstName: 'Fred',
-          //   lastName: 'Flintstone'
-          // })
-          //   .then(function (response) {
-          //     console.log(response);
-          //   })
-          //   .catch(function (error) {
-          //     console.log(error);
-          //   });
-          
           fetch(
               // Change - Your API here
-              'https://dyz2j6a7dg.execute-api.us-east-1.amazonaws.com/V1/fire', 
+              'https://hndl2ye428.execute-api.us-east-1.amazonaws.com/gen1/fire', 
               {
                   method: "POST", 
                   body: JSON.stringify({
@@ -164,7 +153,8 @@
                       "description":description
                   }),
                   headers: {
-                      'Authorization': api_access_token,
+                    "authorizationToken":"admin",
+                      // 'Authorization': api_access_token,
                        "Access-Control-Allow-Origin": "*",
                     "Access-Control-Allow-Methods": "GET,OPTIONS,POST",
                     "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token"
