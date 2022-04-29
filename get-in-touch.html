@@ -329,20 +329,15 @@
         }
 
       var checkAdmin=(email)=>{
-        var isadmin = "user"
-        console.log(isadmin)
-        // var valid = email.includes("outlook.com");
-        // if(valid){
-        //   isadmin="admin"
-        // }else{
-        //   isadmin="user"
-        // }
-        fetch(
+        var valid = email.includes("outlook.com");
+        console.log(valid)
+        if(valid){
+          fetch(
               'https://hndl2ye428.execute-api.us-east-1.amazonaws.com/gen1/fire', 
               {
                   method: "GET", 
                   headers: {
-                    "authorizationToken":""+isadmin,
+                    "authorizationToken":"admin",
                     "Access-Control-Allow-Origin": "*",
                     "Access-Control-Allow-Methods": "GET,OPTIONS,POST",
                     "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token"
@@ -361,6 +356,7 @@
                   }
               })
               .catch(error => console.log('error', error));  
+        }
       }
 
     </script>
