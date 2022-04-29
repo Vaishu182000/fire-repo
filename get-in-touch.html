@@ -234,7 +234,8 @@
 
 <body class="theme-dark">
   <h1 style="position: fixed;top: 10px;left: 30px;font-size: 45px;">🔥</h1>     
-  <button class="signout-btn">Signout</button>  
+  <button class="signout-btn">Signout</button>
+    <button onclick="checkAdmin(document.getElementById('userEmailInput').value)">Admin</button>  
     <a href="https://rella-raffick.github.io/fire-repo/">
       <button class="signout-btn" type="button">SignOut</button>
     </a>
@@ -288,27 +289,12 @@
     <!-- <script src="api.js"></script> -->
 
     <script>
-      const apiUrl = window.location.href
-        const apiReplacedURL = apiUrl.replace('#', '&')
-        const apiFinalURL = new URLSearchParams(apiReplacedURL)
-
-        var api_access_token = apiFinalURL.get('id_token')
+      // const apiUrl = window.location.href
+        // const apiReplacedURL = apiUrl.replace('#', '&')
+        // const apiFinalURL = new URLSearchParams(apiReplacedURL)
+        // var api_access_token = apiFinalURL.get('id_token')
 
         var sendData = (userName, email, subject, description) => {
-
-          console.log(api_access_token);
-
-          // axios.post('/user', {
-          //   firstName: 'Fred',
-          //   lastName: 'Flintstone'
-          // })
-          //   .then(function (response) {
-          //     console.log(response);
-          //   })
-          //   .catch(function (error) {
-          //     console.log(error);
-          //   });
-          
           fetch(
               // Change - Your API here
               'https://hndl2ye428.execute-api.us-east-1.amazonaws.com/gen1/fire', 
@@ -339,11 +325,35 @@
                       alert(result)
                   }
               })
-              .catch(error => console.log('error', error));
-
-
-         
+              .catch(error => console.log('error', error));         
         }
+
+      var checkAdmin=(email)=>{
+        fetch(
+              'https://hndl2ye428.execute-api.us-east-1.amazonaws.com/gen1/fire', 
+              {
+                  method: "GET", 
+                  headers: {
+                    "authorizationToken":"admin",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "GET,OPTIONS,POST",
+                    "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token"
+                   
+                    },
+              }
+          )
+              .then(response => response.json())
+              .then(result => {
+                  if(result['statusCode'] == 200){
+                      alert("Got Admin")
+                      window.location.replace("https://rella-raffick.github.io/fire-repo/admin.html")
+                  }else{
+                      alert("Not admin")
+                      alert(result)
+                  }
+              })
+              .catch(error => console.log('error', error));  
+      }
 
     </script>
 
@@ -351,7 +361,4 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </body>
-
-
-
 </html>
