@@ -253,11 +253,11 @@
         <form id="contact-form" action="#">
           
           <div class="form-item">
-            <input id="userNameInput" class="form-control" type="text" name="name" id="userName" required="">
+            <input id="userNameInput" class="form-control" type="text" name="name" disabled id="userName" required="">
             <label>Name:</label>
           </div>
           <div class="form-item">
-            <input id="userEmailInput" class="form-control" type="email" name="email" required="">
+            <input id="userEmailInput" class="form-control" type="email" disabled name="email" required="">
             <label>Email:</label>
           </div>
           <div class="form-item">
@@ -344,7 +344,7 @@
                     },
               }
           )
-          .then(response => response.json())
+          .then(response => console.log(response.json()))
           .then(result => {
               if(result['statusCode'] == 200){
                   alert("Got Admin")
